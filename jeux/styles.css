@@ -1,0 +1,133 @@
+/* Style général de la page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2e8b57; /* Couleur d'arrière-plan verte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* Couleur du texte */
+}
+
+/* Style du titre et des éléments de score */
+h1, h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Conteneur du jeu de mémoire */
+.memory-game {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    perspective: 1000px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Ombre portée */
+    background-color: #3cb371; /* Couleur de fond du conteneur de jeu */
+}
+
+/* Style de chaque carte de mémoire */
+.memory-card {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s; /* Animation pour le retournement */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-color: transparent; /* Transparent pour laisser voir les faces des cartes */
+}
+
+/* Retourner la carte lorsqu'elle a la classe flip */
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+/* Style pour les images des cartes */
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+/* Face avant des cartes (lorsque retournées) */
+.front-face {
+    transform: rotateY(180deg);
+}
+
+/* Animation pour un match trouvé */
+.memory-card.match {
+    animation: matchFound 0.5s ease;
+}
+
+@keyframes matchFound {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.hidden {
+    display: none;
+}
+
+.game-over {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.memory-game {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.memory-game.hidden {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+
+/* Animation pour un non-match */
+.memory-card.no-match {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

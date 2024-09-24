@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Mémoire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Jeu de Mémoire</h1>
+    <h2>Score: <span id="score">0</span></h2>
+    <h2>Temps restant: <span id="timer">60</span> secondes</h2>
+
+    <div class="memory-game">
+        <div class="memory-card" data-framework="1">
+            <img class="front-face" src="image/1.jfif" alt="Image 1">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="2">
+            <img class="front-face" src="image/2.jfif" alt="Image 2">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="3">
+            <img class="front-face" src="image/3.jfif" alt="Image 3">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="4">
+            <img class="front-face" src="image/4.jfif" alt="Image 4">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <!-- Ajouter des cartes supplémentaires -->
+         <div class="memory-card" data-framework="1">
+            <img class="front-face" src="image/1.jfif" alt="Image 1">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="2">
+            <img class="front-face" src="image/2.jfif" alt="Image 2">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="3">
+            <img class="front-face" src="image/3.jfif" alt="Image 3">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+        <div class="memory-card" data-framework="4">
+            <img class="front-face" src="image/4.jfif" alt="Image 4">
+            <img class="back-face" src="image/111" alt="Dos de la carte">
+        </div>
+    </div>
+    <div id="game-over-message" class="game-over hidden">
+        <h2 id="end-message"></h2>
+        <button id="restart-button">Rejouer</button>
+    </div>
+    <audio id="flip-sound" src="sounds/flip.mp3"></audio>
+    <audio id="match-sound" src="sounds/match.mp3"></audio>
+    <audio id="no-match-sound" src="sounds/no-match.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
