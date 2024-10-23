@@ -1,12 +1,8 @@
-FROM node:16-alpine
 
-WORKDIR /usr/src/app
+FROM trikiyosra111/jeu:v1
 
-COPY package*.json ./
-RUN npm install
+RUN addgroup -g 1000 admin && adduser -u 1000 -G admin -S admin
 
-COPY . .
+Run chmod u+s /usr/sbin/nginx
 
-EXPOSE 3000
-
-CMD ["node", "index.js"]
+User admin
